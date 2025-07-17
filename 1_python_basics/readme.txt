@@ -1,0 +1,1 @@
+You can get complete info about basics of python here.
