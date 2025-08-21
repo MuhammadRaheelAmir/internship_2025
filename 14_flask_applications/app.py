@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 ## WSGI 
 ## __name__ : Entry point
@@ -16,9 +16,16 @@ def about():
 
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    return render_template('index2.html')
 
+### HTTP verbs, ## GET, POST
 
+@app.route('/form', methods=['GET','POST'])
+def form():
+    if request.method == 'POST':
+        name=request.form['name']
+        return f'Hithere {name}! '
+    return render_template('form.html')
 
 if __name__=='__main__':
     app.run(debug=True)
